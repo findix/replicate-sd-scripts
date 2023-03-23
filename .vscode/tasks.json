@@ -1,0 +1,31 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Cog predict",
+            "type": "shell",
+            "command": "cog",
+            "args": [
+                "predict",
+                "-i",
+                "pretrained_model_name_or_path=training_data/model.ckpt",
+                "-i",
+                "train_data_zip=@training_data/SLGstyle_character_V6.zip",
+                "-i",
+                "persistent_data_loader_workers=False",
+                "-i",
+                "train_unet_only=True",
+                "-i",
+                "train_text_encoder_only=True",
+                // "--debug",
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
